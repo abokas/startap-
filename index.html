@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>FLASHLIGHT PRO 🔦</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="container">
+
+    <h1>🔦 FLASHLIGHT</h1>
+
+    <p class="subtitle">
+      Самый обычный фонарик. Наверное.
+    </p>
+
+    <div
+      class="flashlight"
+      id="flashlight"
+      role="button"
+      tabindex="0"
+      aria-label="Включить фонарик"
+    >
+      🔦
+    </div>
+
+    <button id="mainButton">
+      ОТКЛЮЧИТЬ ФОНАРИК
+    </button>
+
+  </main>
+
+
+  <!-- PREMIUM POPUP -->
+
+  <div
+    class="overlay"
+    id="overlay"
+    aria-hidden="true"
+  >
+
+    <div
+      class="popup"
+      role="dialog"
+      aria-modal="true"
+    >
+
+      <button
+        class="close"
+        id="closeBtn"
+        aria-label="Закрыть"
+      >
+        ×
+      </button>
+
+      <div class="crown">
+        👑
+      </div>
+
+      <div class="badge">
+        FLASHLIGHT PREMIUM
+      </div>
+
+      <h2>
+        Фонарик слишком мощный 😎
+      </h2>
+
+      <p>
+        Чтобы выключить
+        ультра-турбо-мега фонарик,
+        нужна премиум-подписка.
+      </p>
+
+      <div class="price">
+        999₽
+        <small>/ навсегда*</small>
+      </div>
+
+      <button
+        class="subscribe"
+        id="subscribeBtn"
+      >
+        🔥 ПОЛУЧИТЬ PREMIUM
+      </button>
+
+      <div
+        class="success"
+        id="success"
+      >
+        😂 АХАХА, ПОПАЛСЯ!
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>

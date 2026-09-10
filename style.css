@@ -1,0 +1,344 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at center, #202020 0%, #080808 55%, #000 100%);
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 25px;
+}
+
+h1 {
+  font-size: clamp(32px, 8vw, 65px);
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+}
+
+.subtitle {
+  color: #888;
+  margin-bottom: 40px;
+}
+
+.flashlight {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  border: 3px solid #333;
+  background: radial-gradient(circle, #333, #111);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 35px;
+
+  font-size: 75px;
+  cursor: pointer;
+
+  transition: 0.4s;
+
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+}
+
+.flashlight:hover {
+  transform: scale(1.05);
+}
+
+.flashlight.on {
+  background:
+    radial-gradient(
+      circle,
+      #fff 0%,
+      #ffe76b 20%,
+      #ffb300 55%,
+      #222 100%
+    );
+
+  box-shadow:
+    0 0 40px #ffd000,
+    0 0 100px #ffb300,
+    0 0 200px rgba(255, 190, 0, 0.5);
+}
+
+button {
+  border: none;
+  padding: 17px 35px;
+
+  border-radius: 50px;
+
+  background: linear-gradient(
+    135deg,
+    #ffd000,
+    #ff7b00
+  );
+
+  color: #111;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 30px rgba(255, 170, 0, 0.25);
+
+  transition: 0.25s;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+#mainButton {
+  display: none;
+}
+
+
+/* =========================
+   ОКНО PREMIUM
+========================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.8);
+
+  backdrop-filter: blur(8px);
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 10;
+
+  padding: 20px;
+}
+
+.overlay.show {
+  display: flex;
+
+  animation: fadeIn 0.3s ease;
+}
+
+
+/* =========================
+   БАННЕР
+========================= */
+
+.popup {
+  width: min(430px, 100%);
+
+  background:
+    linear-gradient(
+      145deg,
+      #1d1d1d,
+      #090909
+    );
+
+  border: 1px solid #3b3b3b;
+
+  border-radius: 28px;
+
+  padding: 35px 25px;
+
+  text-align: center;
+
+  box-shadow:
+    0 25px 100px rgba(0, 0, 0, 0.8);
+
+  animation:
+    popup 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  position: relative;
+}
+
+.crown {
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+.popup h2 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.popup p {
+  color: #aaa;
+
+  line-height: 1.5;
+
+  margin-bottom: 25px;
+}
+
+.price {
+  font-size: 45px;
+
+  font-weight: 900;
+
+  color: #ffd000;
+
+  margin: 15px 0;
+}
+
+.price small {
+  font-size: 15px;
+
+  color: #888;
+
+  font-weight: normal;
+}
+
+.subscribe {
+  width: 100%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffdb00,
+      #ff7a00
+    );
+
+  margin-top: 5px;
+}
+
+
+/* =========================
+   КНОПКА ЗАКРЫТИЯ
+========================= */
+
+.close {
+  position: absolute;
+
+  right: 18px;
+  top: 15px;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  background: #252525;
+
+  color: white;
+
+  font-size: 20px;
+
+  box-shadow: none;
+}
+
+.close:hover {
+  background: #333;
+}
+
+
+/* =========================
+   PREMIUM BADGE
+========================= */
+
+.badge {
+  display: inline-block;
+
+  background: #252525;
+
+  color: #ffd000;
+
+  padding: 7px 13px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  margin-bottom: 15px;
+}
+
+
+/* =========================
+   ПОСЛЕ ПРИКОЛА
+========================= */
+
+.success {
+  display: none;
+
+  font-size: 25px;
+
+  margin-top: 20px;
+
+  color: #69ff8b;
+}
+
+
+/* =========================
+   АНИМАЦИИ
+========================= */
+
+@keyframes popup {
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.75)
+      translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* =========================
+   ТЕЛЕФОН
+========================= */
+
+@media (max-width: 500px) {
+
+  .flashlight {
+    width: 150px;
+    height: 150px;
+
+    font-size: 60px;
+  }
+
+  .popup h2 {
+    font-size: 25px;
+  }
+
+  .price {
+    font-size: 38px;
+  }
+}
